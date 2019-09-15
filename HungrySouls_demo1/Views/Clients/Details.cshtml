@@ -1,0 +1,66 @@
+﻿@model HungrySouls_demo1.Models.Client
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Client</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Client_FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client_FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Client_LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client_LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Client_DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client_DOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Client_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client_Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Client_Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client_Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Client_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client_Address)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ClientID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

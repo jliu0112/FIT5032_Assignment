@@ -1,0 +1,58 @@
+﻿@model HungrySouls_demo1.Models.Booking
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Booking</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.Client_FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.Client_FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Staff.Staff_FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Staff.Staff_FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Booking_Date_Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Booking_Date_Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Booking_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Booking_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Booking_No_of_People)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Booking_No_of_People)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookingID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
