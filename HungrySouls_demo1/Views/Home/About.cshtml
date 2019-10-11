@@ -1,7 +1,75 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "About Us";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+    <body>
+        <div class="jumbotron">
+            <h2>Our Story</h2>
+            <p>Hungry Souls has a brilliant chief team to serve meals. Also we have best baristas</p>
+        </div>
+        <img class="img-responsive" src="~/Content/Images/Homepageimage.jpg" alt="Coffee" style="width:988px; height:412px; margin:auto;"
+             srcset="~/Content/Images/HomePage320.jpg 320w, ~/Content/Images/HomePage640.jpg 480w, ~/Content/Images/Homepageimage.jpg 800w"
+             sizes="(max-width: 320px) 280px,(max-width: 480px) 440px,800px" />
 
-<p>Use this area to provide additional information.</p>
+        <div class="col-md-4">
+            <h4>David Ryan</h4>
+            <div>
+                <img src="~/Content/Images/souschef.png" style="width:344px;height:164px;" />
+            </div>
+            <p class="title">Head Chef</p>
+            <p class="describe">A head chef, also sometimes known as a head cook, oversees many diverse aspects of a restaurant or eatery. They manage and work closely with other cooks, create menu items and determine food inventory needs. They are employed at a number of food service establishments or facilities, including universities, hospitals, residential care centers and catering companies. They may also work as personal chefs.</p>
+            </div>
+        <div class="col-md-4">
+            <h4>Micheal Jordan</h4>
+            <div class="images">
+                <img src="~/Content/Images/headchef.jpg" style="width:344px;height:164px;" />
+            </div>
+            <p class="title">Sous Chef</p>
+            <p class="describe">
+                Works alongside head chef to manage daily kitchen activities, including overseeing staff, aiding with menu preparation, ensuring food quality and freshness, and monitoring ordering and stocking. Provides meal quality and consistency by following designated recipes.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h4>Jacqueline Bordon</h4>
+            <div class="images">
+                <img src="~/Content/Images/barista.jpg" style="width:344px;height:164px;"/>
+            </div>
+            <p class="title">Super Barista </p>
+            <p class="describe">A barista is a person, usually a coffeehouse employee, who prepares and serves espresso-based coffee drinks.</p>
+
+        </div>
+</body>
+            <style>
+            .jumbotron {
+                margin: 64px;
+                padding: 2px,8px,2px,8px;
+                background-image: url('../../Content/Images/Head.jpg');
+                background-size:100%;
+                color:white;
+            }
+                .img-responsive
+                {
+                margin: 64px;
+                }
+                body{
+                    background-color:antiquewhite;
+                }
+                h4{
+                font-family: Tahoma, Geneva, sans-serif;
+                font-size: 22px;
+                color:antiquewhite;
+                border-color:#1B7E62;
+                background-color:#1B7E62;
+                border-style:unset;
+                border-radius: 25px;
+                text-align:center;
+                }
+                .title{
+                font-family: Tahoma, Geneva, sans-serif;
+                font-size: 18px;
+                }
+                p{
+                font-family: Tahoma, Geneva, sans-serif;
+                font-size: 14px;
+                font-weight:100;
+                }
+            </style>

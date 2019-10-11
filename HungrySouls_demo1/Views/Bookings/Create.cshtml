@@ -6,10 +6,10 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Booking</h4>
         <hr />
@@ -65,3 +65,19 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+<script>
+        $(document).ready(function ()
+        {
+           
+            $("#Booking_Date_Time").datetimepicker(
+                {
+                    showTodayButton: true,
+                    format: 'YYYY-MM-DD HH:mm',
+                    showClose: true,
+                    showClear: true,
+                    minDate: new Date(),
+                    toolbarPlacement: 'top',
+                    stepping: 15,
+                });
+        });
+</script>

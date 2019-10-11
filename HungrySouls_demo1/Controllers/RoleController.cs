@@ -5,7 +5,7 @@ using System.Web.Mvc;
 using HungrySouls_demo1.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace A11_RBS.Controllers
+namespace HungrySouls_demo1.Controllers
 {
     public class RoleController : Controller
     {

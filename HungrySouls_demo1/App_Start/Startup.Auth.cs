@@ -58,11 +58,11 @@ namespace HungrySouls_demo1
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "1021535983299-dg61bha1v949k7t5vndodae3460diucv.apps.googleusercontent.com",
+                ClientSecret = "IOO6tH6phJd7wYEyvbPflX7c"
+            });
         }
     }
 }

@@ -20,16 +20,16 @@ namespace HungrySouls_demo1.Models
         [Required]
         public BookingType Booking_Type { get; set; }
         [Required]
-        [Display(Name ="No. of People")]
+        [Display(Name ="Number of People")]
         public int Booking_No_of_People { get; set; }
 
-        [Required]
-
+        
+        [Display(Name ="Client")]
         public int ClientID { get; set; }
         public virtual Client Client { get; set; }
 
-        [Required]
 
+        [Display(Name = "Staff")]
         public int StaffID { get; set; }
 
         public virtual Staff Staff { get; set; }

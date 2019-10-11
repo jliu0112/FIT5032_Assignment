@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using HungrySouls_demo1.CustomFilters;
 using HungrySouls_demo1.Models;
 
 namespace HungrySouls_demo1.Controllers
@@ -15,13 +17,14 @@ namespace HungrySouls_demo1.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Bookings
+        [AuthLog(Roles = "Admin,Staff")]
         public ActionResult Index()
         {
             var bookings = db.Bookings.Include(b => b.Client).Include(b => b.Staff);
             return View(bookings.ToList());
         }
-
         // GET: Bookings/Details/5
+        [AuthLog(Roles = "Admin,Staff")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,7 +38,7 @@ namespace HungrySouls_demo1.Controllers
             }
             return View(booking);
         }
-
+        [AuthLog(Roles = "Client")]
         // GET: Bookings/Create
         public ActionResult Create()
         {
@@ -64,6 +67,7 @@ namespace HungrySouls_demo1.Controllers
         }
 
         // GET: Bookings/Edit/5
+        [AuthLog(Roles = "Admin,Staff,Client")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -99,6 +103,7 @@ namespace HungrySouls_demo1.Controllers
         }
 
         // GET: Bookings/Delete/5
+        [AuthLog(Roles = "Admin, Staff")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

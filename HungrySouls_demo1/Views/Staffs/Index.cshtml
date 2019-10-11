@@ -10,48 +10,62 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Staff_FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Staff_LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Staff_Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Staff_Phone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Staff_Address)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Staff_FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Staff_LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Staff_Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Staff_Phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Staff_Address)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.StaffID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.StaffID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.StaffID })
-        </td>
-    </tr>
-}
-
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Staff_FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Staff_LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Staff_Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Staff_Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Staff_Address)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Staff_FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Staff_LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Staff_Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Staff_Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Staff_Address)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.StaffID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.StaffID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.StaffID })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+@section Scripts {
+    @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.js")
+    @Scripts.Render("~/Scripts/DataTables/dataTables.bootstrap.js")
+    <script>
+    $(document).ready(function () {
+        $('.table').DataTable();
+    });
+    </script>
+}
+<link href="~/Content/DataTables/css/dataTables.bootstrap.min.css"
+      rel="stylesheet" />

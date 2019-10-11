@@ -73,3 +73,19 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+<script type="text/javascript">
+   var firstOpen = true;
+$(function(){
+$('#Client_DOB').datetimepicker({
+
+    viewMode: 'days',
+    format: 'DD/MM/YYYY',
+}).on("dp.show", function(){
+    console.log("dtp open");
+    if (firstOpen==true){
+        $(this).data('DateTimePicker').date("01/01/1900");
+        firstOpen=false;
+    }
+});
+});
+</script>

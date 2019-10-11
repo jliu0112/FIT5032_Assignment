@@ -45,7 +45,7 @@ namespace HungrySouls_demo1.CustomFilters
                 vr.ViewName = View;
 
                 ViewDataDictionary dict = new ViewDataDictionary();
-                dict.Add("Message", "Sorry you are not allowed to book.");
+                dict.Add("Message", "Sorry, you don't have the access to this page! ");
 
                 vr.ViewData = dict;
 
