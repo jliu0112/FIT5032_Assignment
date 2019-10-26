@@ -39,10 +39,10 @@ namespace HungrySouls_demo1.Controllers
             //string path = "~/Content/Upload/" + Guid.NewGuid() + "/";
             if (ModelState.IsValid)
             {
-               // var body = "<p>Email From: {0} ({1})</p><p>Message:</p><p>{2}</p>";
+                var body = "<p>Email From: {0} ({1})</p><p>Message:</p><p>{2}</p>";
                 var message = new MailMessage();
                 string[] receiver = model.ToEmail.Split(';');
-                for (int i =0; i < receiver.Length; i++)
+                for (int i = 0; i < receiver.Length; i++)
                 {
                     if (receiver.Length > 0)
                     {
@@ -50,7 +50,7 @@ namespace HungrySouls_demo1.Controllers
                     }
                 }
                 message.Subject = "Your email subject";
-                message.Body = string.Format( model.FromName, "hungry.souls@hungry.com", model.Message);
+                message.Body = string.Format(body, model.FromName, "hungry.souls@hungry.com", model.Message);
                 message.IsBodyHtml = true;
                 if (model.Bcc != null)
                 {
@@ -60,8 +60,7 @@ namespace HungrySouls_demo1.Controllers
                         message.CC.Add(model.Cc);
                     }
                 }
-
-                if (model.Upload != null && model.Upload.Count > 0)
+                if (model.Upload[0] != null)
                 {
                     for (int i = 0; i < model.Upload.Count; i++)
                     {
@@ -69,8 +68,6 @@ namespace HungrySouls_demo1.Controllers
                         message.Attachments.Add(new Attachment(file.InputStream, Path.GetFileName(file.FileName)));
                     }
                 }
-
-
                 using (var smtp = new SmtpClient())
                 {
                     await smtp.SendMailAsync(message);
