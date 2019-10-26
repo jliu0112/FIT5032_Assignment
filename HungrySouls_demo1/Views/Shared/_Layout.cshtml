@@ -34,7 +34,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("About Us", "About", "Home")</li>
-                    <li>@Html.ActionLink("Menu", "", "")</li>
+                    <li>@Html.ActionLink("Menu", "Menu", "Home")</li>
 
                     @if (User.IsInRole("Client"))
                     {
@@ -63,8 +63,51 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <footer>
+           @* <p class="line"></p> *@
+            <p>Contact Us</p>
+            <p>123 Hungry Street</p>
+            <p>Melbourne, Victoria</p>
+            <p>Follow Us @@</p>
+            <div class="b">
+                <a href="https://www.facebook.com/">
+                    <div type="button" style="padding: 5px 5px;">
+                        <img src="~/Content/Images/facebook.jpg" style="width:50px;height:50px;" />
+                    </div>
+                </a>
+            </div>
+            <div class="b">
+                <a href="https://www.instagram.com/">
+                    <div type="button" style="padding: 5px 5px;">
+                        <img src="~/Content/Images/instagram.jpg" style="width:50px;height:50px;" />
+                    </div>
+                </a>
+            </div>
         </footer>
     </div>
     @Scripts.Render("~/bundles/bootstrap")
@@ -76,23 +119,28 @@
 {
 font-family: "Comic Sans MS", cursive, sans-serif;
 font-size: 20px;
-background-color: #0A542C;
 border-style:unset;
 border-radius: 12px;
-}
-.navbar-inverse 
-{
-background: #1B7E62;
-border-color: #1B7E62;
 }
 
 .navbar-inverse .navbar-nav >li 
 {
 font-family: "Comic Sans MS", cursive, sans-serif;
 font-size: 16px;
-background-color: #0A542C;
 border-style:unset;
 border-radius: 25px;
 }
+    body {
+        background-color: antiquewhite;
+    }
+
+    .p{
+       font-family:"Comic Sans MS", cursive, sans-serif;  
+       font-style: italic;
+       text-align:center;
+    }
+    .b{
+        float:left;
+    }
 </style>
 

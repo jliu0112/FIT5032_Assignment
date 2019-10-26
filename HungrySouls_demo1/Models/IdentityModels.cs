@@ -35,7 +35,6 @@ namespace HungrySouls_demo1.Models
         public System.Data.Entity.DbSet<HungrySouls_demo1.Models.Review> Reviews { get; set; }
 
         public System.Data.Entity.DbSet<HungrySouls_demo1.Models.Location> Locations { get; set; }
-
-       
+        public System.Data.Entity.DbSet<HungrySouls_demo1.Models.Rate> Rates { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace HungrySouls_demo1.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201909150017510_InitialCreate"; }
+            get { return "201910250613172_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

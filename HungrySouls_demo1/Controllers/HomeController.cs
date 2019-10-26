@@ -83,8 +83,14 @@ namespace HungrySouls_demo1.Controllers
         {
             return View();
         }
-
-
+        public ActionResult Menu()
+        {
+            return View();
+        }
+        public ActionResult Chat()
+        {
+            return View();
+        }
 
     }
 }

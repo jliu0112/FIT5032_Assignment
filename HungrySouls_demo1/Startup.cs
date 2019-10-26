@@ -9,6 +9,13 @@ namespace HungrySouls_demo1
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            app.MapSignalR();
         }
+            //public void Configuration(IAppBuilder app)
+          //  {
+         //       app.MapSignalR();
+           // }
+        
+
     }
 }

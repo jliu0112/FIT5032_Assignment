@@ -37,7 +37,6 @@ namespace HungrySouls_demo1.Controllers
             }
             return View(staff);
         }
-        [AuthLog(Roles = "Staff")]
         // GET: Staffs/Create
         [AuthLog(Roles = "Admin")]
         public ActionResult Create()

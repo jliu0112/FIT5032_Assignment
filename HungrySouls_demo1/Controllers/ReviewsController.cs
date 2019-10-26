@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 using HungrySouls_demo1.Models;
 
 namespace HungrySouls_demo1.Controllers
@@ -13,13 +16,27 @@ namespace HungrySouls_demo1.Controllers
     public class ReviewsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        
         // GET: Reviews
         public ActionResult Index()
         {
             var reviews = db.Reviews.Include(r => r.Client);
             return View(reviews.ToList());
         }
+
+        public ActionResult DataPoint()
+        {
+            var rating = db.Reviews.GroupBy(r => r.RatingLevel)
+                .Select(r => new ReviewViewModels()
+                {
+                    Level = r.Key.ToString(),
+                    Count = r.Count()
+                }).ToList();
+            ViewBag.DataPoints = JsonConvert.SerializeObject(rating);
+            return View(rating);
+        }
+
+      
 
         // GET: Reviews/Details/5
         public ActionResult Details(int? id)
@@ -35,7 +52,7 @@ namespace HungrySouls_demo1.Controllers
             }
             return View(review);
         }
-
+      
         // GET: Reviews/Create
         public ActionResult Create()
         {
@@ -56,7 +73,6 @@ namespace HungrySouls_demo1.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             ViewBag.ClientID = new SelectList(db.Clients, "ClientID", "Client_FirstName", review.ClientID);
             return View(review);
         }
@@ -119,7 +135,6 @@ namespace HungrySouls_demo1.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

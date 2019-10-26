@@ -10,36 +10,54 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Client.Client_FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RatingLevel)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Comments)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Client.Client_FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RatingLevel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comments)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ReviewID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ReviewID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ReviewID })
-        </td>
-    </tr>
-}
-
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Client.Client_FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RatingLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comments)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client.Client_FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RatingLevel)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Comments)*@
+                    @Html.Raw(item.Comments)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ReviewID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ReviewID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ReviewID })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+<div>
+    @Html.Action("DataPoint")
+</div>
+    @section Scripts {
+        @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.js")
+        @Scripts.Render("~/Scripts/DataTables/dataTables.bootstrap.js")
+        <script>
+            $(document).ready(function () {
+                $('.table').DataTable();
+            });
+        </script>
+    }
+    <link href="~/Content/DataTables/css/dataTables.bootstrap.min.css"
+          rel="stylesheet" />

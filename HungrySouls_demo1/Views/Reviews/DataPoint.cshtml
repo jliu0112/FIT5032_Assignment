@@ -1,0 +1,35 @@
+﻿@model IEnumerable<HungrySouls_demo1.Models.ReviewViewModels>
+    <p>
+        <br />
+        <br />
+        
+    </p>
+<script>
+window.onload = function () {
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+    exportEnabled: true,
+	animationEnabled: true,
+	theme: "dark1", // "light1", "light2", "dark1", "dark2"
+	title: {
+		text: "Satisfaction"
+        },
+    	axisY: {
+		title: "Number of Reviews",
+        gridThickness: 0,
+            labelFontSize: 14
+	},
+	data: [{
+        type: "column",
+
+		dataPoints:@Html.Raw(ViewBag.DataPoints)
+	}]
+});
+chart.render();
+
+}
+</script>
+
+    <div id="chartContainer" style="height: 250px; width: 50%; margin:0 auto;"></div>
+    <script src="~/Scripts/canvasjs.min.js"></script>
+

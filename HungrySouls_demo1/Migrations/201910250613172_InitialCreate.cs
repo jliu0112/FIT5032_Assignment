@@ -45,7 +45,7 @@ namespace HungrySouls_demo1.Migrations
                         ReviewID = c.Int(nullable: false, identity: true),
                         ClientID = c.Int(nullable: false),
                         RatingLevel = c.Int(nullable: false),
-                        Comments = c.String(),
+                        Comments = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.ReviewID)
                 .ForeignKey("dbo.Clients", t => t.ClientID, cascadeDelete: true)
@@ -63,6 +63,30 @@ namespace HungrySouls_demo1.Migrations
                         Staff_Address = c.String(),
                     })
                 .PrimaryKey(t => t.StaffID);
+            
+            CreateTable(
+                "dbo.Rates",
+                c => new
+                    {
+                        RatingId = c.Int(nullable: false, identity: true),
+                        StaffID = c.Int(nullable: false),
+                        Rank = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    })
+                .PrimaryKey(t => t.RatingId)
+                .ForeignKey("dbo.Staffs", t => t.StaffID, cascadeDelete: true)
+                .Index(t => t.StaffID);
+            
+            CreateTable(
+                "dbo.Location",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false),
+                        Description = c.String(nullable: false),
+                        Latitude = c.Decimal(nullable: false, precision: 18, scale: 2, storeType: "numeric"),
+                        Longitude = c.Decimal(nullable: false, precision: 18, scale: 2, storeType: "numeric"),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -140,6 +164,7 @@ namespace HungrySouls_demo1.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Rates", "StaffID", "dbo.Staffs");
             DropForeignKey("dbo.Bookings", "StaffID", "dbo.Staffs");
             DropForeignKey("dbo.Reviews", "ClientID", "dbo.Clients");
             DropForeignKey("dbo.Bookings", "ClientID", "dbo.Clients");
@@ -149,6 +174,7 @@ namespace HungrySouls_demo1.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Rates", new[] { "StaffID" });
             DropIndex("dbo.Reviews", new[] { "ClientID" });
             DropIndex("dbo.Bookings", new[] { "StaffID" });
             DropIndex("dbo.Bookings", new[] { "ClientID" });
@@ -157,6 +183,8 @@ namespace HungrySouls_demo1.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Location");
+            DropTable("dbo.Rates");
             DropTable("dbo.Staffs");
             DropTable("dbo.Reviews");
             DropTable("dbo.Clients");

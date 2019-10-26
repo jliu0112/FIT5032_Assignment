@@ -20,6 +20,7 @@ namespace HungrySouls_demo1.Models
         [Required]
         public BookingType Booking_Type { get; set; }
         [Required]
+        [Range(1,10)]
         [Display(Name ="Number of People")]
         public int Booking_No_of_People { get; set; }
 
